@@ -1,128 +1,45 @@
 import React, {Component, useEffect, useState} from 'react';
+import ReactDOM from 'react-dom';
 import '../post/feed'
-import Upload from '../upload/upload'
 import './profile.css'
 import Feed from '../post/feed';
+import { Button} from 'react-bootstrap';
 
 class Profile extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-          name: "Marcos Quan",
-          age: 78,
-          height: 5,
-          weight: 160,
-          gender: "male",
-          number: 7167167167,
-          email: "fit@teamfit.com",
-          isInEditMode: false
-        };
-      }
 
     componentDidMount(){
 
     }
 
-    ChangeEditMode = () => {
-        this.setState({
-            isInEditMode: !this.state.isInEditMode
-        })
-    }
-
-    UpdateComponentValue = () => {
-        this.setState({
-            isInEditMode: false,
-            name: this.refs.inputName.value,
-            age: this.refs.inputAge.value,
-            height: this.refs.inputHeight.value,
-            weight: this.refs.inputWeight.value,
-            gender: this.refs.inputGender.value,
-            number: this.refs.inputNumber.value,
-            email: this.refs.inputEmail.value,
-        })
-
-    }
-
-    renderEditView = () => {
-        return  (
-        <>
-        <div> 
-            Name: <input type="text" defaultValue={this.state.name} ref="inputName" />
-        </div>
-        <div>
-            Age: <input type="text" defaultValue={this.state.age} ref="inputAge" />    
-        </div>
-        <div>
-            Height: <input type="text" defaultValue={this.state.height} ref="inputHeight" />    
-        </div>
-        <div>
-            Weight:<input type="text" defaultValue={this.state.weight} ref="inputWeight"/>    
-        </div>
-        <div> 
-            Gender: <input type="text" defaultValue={this.state.gender} ref="inputGender" />    
-        </div>
-        <div>
-            Number: <input type="text" defaultValue={this.state.number} ref="inputNumber" />    
-        </div>
-        <div>
-            Email: <input type="text" defaultValue={this.state.email} ref="inputEmail" />    
-        </div>
-        <button onClick={this.ChangeEditMode}>Cancel</button>
-        <button onClick={this.UpdateComponentValue}>Submit</button>
-        </>
-        )
-    }
-
-    renderDefaultView = () => {
-        return (
-        <>
-            <div >
-              <p>Name: {this.state.name}</p> 
-            </div>
-            <div >
-              <p>Age: {this.state.age}</p>
-            </div>
-            <div >
-              <p>Height: {this.state.height}</p>
-            </div>
-            <div >
-              <p>Weight: {this.state.weight}</p>
-            </div>
-            <div >
-              <p>Gender: {this.state.gender}</p>
-            </div>
-            <div >
-              <p>Number: {this.state.number}</p>
-            </div>
-            <div >
-              <p>Email: {this.state.email}</p>
-            </div>
-            <button onClick={this.ChangeEditMode}>Edit</button>
-            </>
-        )
+    componentWillUnmount(){
+        
     }
 
     render() {
         return (
-            
-         <>
-          <div className="rows">
+        <div>
+            <div className="rows">
                 <div className="row">
-                <img className="image" alt="profilepic" src="https://images.unsplash.com/photo-1514218698632-ef079aeae842?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60"></img>
+                <div class ="button">
+                    <Button variant="info" size="xxl">Info</Button>{' '}
+                    </div>
+                    <img className="image" alt="profilepic" src="https://images.unsplash.com/photo-1514218698632-ef079aeae842?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60"></img>
+                    <h2 className="name">Marcos Quan</h2>
+                    <h4 className="age">Age: ~78</h4>
+                    <h4 className="height">Height: 5'9</h4>
+                    <h4 className="weight">Weight: ~147</h4>
+                    <h4 className="gender">Gender: Male</h4>
+                    <h4 className="number">Phone Number: 911</h4>
+                    <h4 className="email">Email: marcos@teamfit.com</h4>
+                    <div class ="button">
+                    <Button variant="button" size="xxl">Delete Account</Button>{' '}
+                    </div>
                 </div>
-                <div className="row">
-                {this.state.isInEditMode ? 
-                    this.renderEditView() : this.renderDefaultView()
-                }  
-                </div>
-                <div className="row1">
-                <Upload />
+                {/* <div className="row">
                     <Feed />
-
-                </div>
+                </div> */}
             </div>
-         
-        </>
+        </div>
         )
     };
 }

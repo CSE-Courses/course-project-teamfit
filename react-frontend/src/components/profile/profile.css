@@ -6,20 +6,18 @@
 
 .rows .row{
     flex: 1 1 100%;
-    display: inline-block;
 }
 
 .rows .row1{
     flex: 1 1 100%;
     text-align: center;
-    /* display: inline-flex; */
 }
 
 .image{
-    border-radius: 60px;
-    width: 250px;
-    height: 250px;
-    margin: 18px 18px;
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+    /* margin: 18px 18px; */
 }
 
 .name{
@@ -27,7 +25,7 @@
     margin: 18px 38px;
 }
 .age{
-    display: flex;
+    /* display: flex; */
     margin: 12px 38px;
 }
 .height{
@@ -49,3 +47,27 @@
     display: flex;
     margin: 12px 38px;
 }
+
+.button {
+    justify-content: right;
+    /* display: flex; */
+    width: 90vw ;   /* Occupy the 90% of the screen width
+    max-width: 90vw; */
+    margin-top: 2em;
+    margin-left: 20px;
+    
+} 
+
+
+.info {
+    /* justify-content: right; */
+    /* background-color: black; */
+    color: black;
+    margin-top: 2em;
+    margin-left: 20px;
+  }
+
+
+.btn-xxl {
+    font-size: 2.4 rem;
+  }
