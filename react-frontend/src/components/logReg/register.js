@@ -1,12 +1,5 @@
 import React from "react";
 import loginImg from "../../TeamFit_logo.png";
-import axios from 'axios';
-import axiosConfig from "axios"
-
-
-
-
-
 
 /* function to check whether a form is valid or not*/
 const formValid = ({ formErrors, ...rest }) => {
@@ -28,9 +21,6 @@ const formValid = ({ formErrors, ...rest }) => {
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 );
-// const instance = axios.create({
-//     baseURL: 'http://localhost:3001/'
-// });
 
 export default class Register extends React.Component {
 
@@ -48,7 +38,6 @@ export default class Register extends React.Component {
             weight: null,
             gender: null,
             phoneNumber: null,
-            message: "",
             formErrors: {
                 eMail: "",
                 password: "",
@@ -63,16 +52,10 @@ export default class Register extends React.Component {
         }
     }
 
-
-    componentDidMount() {
-
-    }
-
-
     /*Handles the register button and all entered information from the form*/
     handleSubmit = e => {
         e.preventDefault();
-        if (formValid(this.state)) {
+        if (formValid(this.state)){
             console.log(`
             --SUBMITTING-- 
             E-MAIL: ${this.state.eMail}
@@ -85,20 +68,6 @@ export default class Register extends React.Component {
             GENDER: ${this.state.gender}
             PHONENUMBER: ${this.state.phoneNumber}
             `)
-            //this.componentDidMount()
-            axiosConfig.post('http://127.0.0.1:5000/register',{
-                body : this.state,
-                headers:{"Content-Type":"application/json",},
-                cache: "no-cache",
-            })
-                .then(response => {
-                    let res = response.data
-                    this.setState({message: res['state']})
-                    //this.setState(response);
-                })
-
-
-
         }
         else{
             console.error("FORM INVALID")
@@ -153,7 +122,7 @@ export default class Register extends React.Component {
                 <div className="header"></div>
                     <div className="form-wrapper">
                         <div className="image">
-                            <img src={loginImg} width="180" height="180" alt="Login Image"/>
+                            <img src={loginImg} width="100" height="100" alt="Login Image"/>
                         </div>
                         <h1>Register for An Account</h1>
                         <form id="regForm" onSubmit={this.handleSubmit} noValidate>
@@ -243,7 +212,6 @@ export default class Register extends React.Component {
                                 </div>
                                 <div className="registerBtn">
                                     <button type="submit">Register</button>
-                                    { this.state.message && <h3 className="error"> { this.state.message } </h3> }
                                 </div>
                             </div>
                         </form>

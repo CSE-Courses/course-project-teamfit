@@ -1,7 +1,6 @@
 import React from "react";
 import './logReg.css';
 import loginImg from "../../TeamFit_logo.png";
-import axiosConfig from "axios";
 
 /* function to check whether a form is valid or not*/
 const formValid = ({ formErrors, ...rest }) => {
@@ -33,7 +32,6 @@ export default class Login extends React.Component {
         this.state = {
             uEmail: null,
             uPassword: null,
-            message: "",
             formErrors: {
                 uEmail: "",
                 uPassword: "",
@@ -43,29 +41,13 @@ export default class Login extends React.Component {
 /*   Handles the input from the form when the sign in button is clicked*/
     handleSubmit = e => {
         e.preventDefault();
-        if (formValid(this.state)) {
+        if (formValid(this.state)){
             console.log(`
             --SUBMITTING-- 
             E-MAIL: ${this.state.uEmail}
             PASSWORD: ${this.state.uPassword}
             `)
-            axiosConfig.post('http://127.0.0.1:5000/login',{
-                body : this.state,
-                headers:{"Content-Type":"application/json",},
-                cache: "no-cache",
-            })
-                .then(response => {
-                    let res = response.data
-                    this.setState({message: res['state']})
-                    console.log(this.state)
-                });
-        // fetch('http://localhost:3000/login', {
-        //     method: "POST",
-        //     cache: "no-cache",
-        //     headers: {"Content-Type": "application/json",},
-        //     body: JSON.stringify(this.state)
-        // }).then(response => response.json())
-    }
+        }
         else{
             console.error("FORM INVALID")
         }
@@ -94,14 +76,18 @@ render(){
     return <div className="wrapper">
             <div className="header">
                     <body className="body">
-                        <img src={loginImg} width="180" height="180" alt="Login Image" />
+                        <img src={loginImg} width="100" height="100" alt="Login Image" />
                     </body>
+
                 </div>
+                {/* <div>
+                        </div> */}
                 <div className="form-wrapper">
+                <h1>Welcome to TEAMFIT</h1>
+                <h1>Please Sign In</h1>
                     <div className="image">
-                        <img src={loginImg} width="180" height="180" alt="Login Image" />
-                        <h3>Welcome to TEAMFIT</h3>
-                        <h4>Please Sign In</h4>
+                        <img src={loginImg} width="100" height="100" alt="Login Image" />
+                        
 
                     </div>
                     <form onSubmit={this.handleSubmit} noValidate>
@@ -118,7 +104,6 @@ render(){
                             </div>
                             <div className="loginBtn">
                                 <button type="submit">Sign In</button>
-                                { this.state.message && <h3 className="error"> { this.state.message } </h3> }
                             </div>
                         </div>
                     </form>
