@@ -1,49 +1,19 @@
-.rows{
-    display: flex;
-    margin-top: 2em;
-    list-style: none;
-}
-
-.rows .row{
-    flex: 1 1 100%;
-}
-
-.rows .row1{
-    flex: 1 1 100%;
+.title {
     text-align: center;
+    font-family: arial, sans-serif;
+    background-color: #4564e0;
+    height: 10%;
+    width: 10%;
+    border-radius: 40%;
+  }
+  
+.friend {
+  text-align: center;
+  font-family: arial, sans-serif;
+  background-color: #4564e0;
+  height: 10%;
+  width: 20%;
+  border-radius: 40%;
 }
-
-.image{
-    border-radius: 60px;
-    width: 250px;
-    height: 250px;
-    margin: 18px 18px;
-}
-
-.name{
-    display: flex;
-    margin: 7px 20px;
-}
-.age{
-    display: flex;
-    margin: 12px 38px;
-}
-.height{
-    margin: 7px 20px;
-}
-.weight{
-    display: flex;
-    margin: 7px 20px;
-}
-.gender{
-    display: flex;
-    margin: 7px 20px;
-}
-.number{
-    display: flex;
-    margin: 7px 20px;
-}
-.email{
-    display: flex;
-    margin: 7px 20px;
-}
+  
+  
